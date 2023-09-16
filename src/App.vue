@@ -1,30 +1,36 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div class="content">
+    <WysiwygEditor v-model="someText" id="editorWindow"> </WysiwygEditor>
+  </div>
 </template>
 
+<script>
+import WysiwygEditor from "./components/WysiwygEditor.vue";
+export default {
+  components: { WysiwygEditor },
+  data() {
+    return {
+      someText: "",
+    };
+  },
+};
+</script>
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  height: 100vh;
+  width: 100wh;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  text-align: left;
+  color: #eaeaea;
+  background-color: rgba(30, 30, 30, 1);
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.content {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 77px 5rem;
 }
 </style>
